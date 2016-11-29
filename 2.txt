@@ -1,0 +1,125 @@
+//класс робота 
+
+
+function Robot()
+{
+this.hitPoints = 0;
+this.level = 1;
+this.weapon1 = new Weapon();
+this.weapon2 = new Weapon();
+this.equip1 = new Equip();
+this.equip2 = new Equip();
+this.effects = 0;
+} 
+
+
+
+
+//класс пользователя 
+
+
+function User(telegramUser)
+{
+this.last_name = telegramUser.last_name;
+this.first_name = telegramUser.first_name;
+this.username = telegramUser.username;
+this.id = telegramUser.id;
+this.robot = new Robot();
+this.state = "main_menu";
+this.money = 100;
+this.armorLevel = 0;
+this.weaponLevel = 0;
+this.room = null;
+(?)this.chatId = _chatId
+}
+
+exports.User = User;
+
+//класс оружие
+
+
+function Weapon(_weapon)
+{
+this.id = _weapon.id;
+this.type = "Weapon";
+this.damage = _weapon.damage;
+this.cooldown = _weapon.cooldown;
+this.needLevel = _weapon.needLevel;
+this.price = _weapon.price;
+}
+
+//класс щит
+
+function Shield(_shield)
+{
+this.id = _shield.id;
+this.type = "Shield";
+this.resist = _shield.resist;
+this.cooldown = _shield.cooldown;
+this.needLevel = _shield.needLevel;
+this.price = _shield.price;
+this.attackN = _shield.attackN;
+}
+
+//класс перманентный щит 
+
+function ConstShield(_constshield)
+{
+this.id = _constshield.id;
+this.type = "ConstShield";
+this.resist = _constshield.resist;
+this.needLevel = _constshield.needLevel;
+this.price = _constshield.price;
+}
+
+
+//класс лечение
+function Heal(_heal)
+{
+this.id = _heal.id;
+this.type = "Heal"; 
+this.needLevel = _heal.needLevel;
+this.price = _heal.price;
+this.attackN = _heal.attackN;
+this.cooldown = _heal.cooldown;
+this.heal = _heal.heal;
+this.additionalDamage = _heal.additionalDamage;
+}
+
+//класс долговременное лечение
+
+function CatchHeal(_catchheal)
+{
+this.id = _catchheal.id;
+this.type = "CatchHeal"; 
+this.heal = _catchheal.heal;
+this.cooldown = _catchheal.cooldown;
+this.price = _catchheal.price;
+this.needLevel = _catchheal.needLevel;
+this.healTime = _catchheal.healTime;
+}
+
+
+//класс поиска игрока
+
+function SearchUser(user, num, location)
+{
+this.level = user.level;
+this.num = num.num;
+this.location = location.location;
+}
+
+//класс эффектов 
+
+function Effect(_effect)
+{this.name = _effect.name;
+this.parameters = _effect.parameters;
+}
+
+//класс статистики 
+
+function Stat(name, value)
+{
+this.name = name.name;
+this.value = value.value;
+}
